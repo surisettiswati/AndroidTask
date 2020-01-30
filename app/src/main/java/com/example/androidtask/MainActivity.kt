@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidtask.Products.ProductsFragment
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var toolbar: ActionBar
@@ -23,7 +24,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setCustomActionBar()
         setReference()
         setClickListeners()
-        EnableAll()
+        enableAll()
+        addFragment(ProductsFragment(), false, "ProductsFragment")
 
 
     }
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    fun EnableAll() {
+    fun enableAll() {
         img_menu.visibility = View.VISIBLE
         txt_title.visibility = View.VISIBLE
         img_menu.visibility = View.VISIBLE
@@ -69,7 +71,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onClick(v: View?) {
-        when (v?.getId()) {
+        when (v?.id) {
             R.id.img_menu -> Toast.makeText(this, "Menu Clicked", Toast.LENGTH_SHORT).show()
             R.id.img_filter -> Toast.makeText(this, "Filter Clicked", Toast.LENGTH_SHORT).show()
             R.id.img_search -> Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
@@ -78,16 +80,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    private fun BackClicked() {
-        val fm = supportFragmentManager
-        if (fm.backStackEntryCount > 0) {
-            fm.popBackStack()
-        } else {
-            finish()
+    fun addFragment(fragment: ProductsFragment, addToBackStack: Boolean, tag: String) {
+        val manager = supportFragmentManager
+        val ft = manager.beginTransaction()
+        if (addToBackStack) {
+            ft.addToBackStack(tag)
         }
-
+        ft.replace(R.id.frame_container, fragment, tag)
+        ft.commitAllowingStateLoss()
     }
-
 
 }
 

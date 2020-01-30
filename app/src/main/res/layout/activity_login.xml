@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/White"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/White"
     android:padding="20dp"
     tools:context=".MainActivity">
 
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="LOGIN TO BEGIN YOUR JOURNEY"
+        android:text="@string/login_to_begin_your_journey"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -33,7 +32,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Username:"
+            android:text="@string/username"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -44,17 +43,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/white_rounded_corners"
-            android:hint="Username"
+            android:hint="@string/username"
             android:layout_marginTop="10dp"
             android:padding="8dp"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Password:"
+            android:text="@string/password"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -67,14 +68,16 @@
             android:padding="8dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/white_rounded_corners"
-            android:hint="Password"
-            android:textSize="18sp" />
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            android:importantForAutofill="no" />
 
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txt_signin"
+        android:id="@+id/txt_signIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -82,7 +85,7 @@
         android:background="@drawable/violet_rounded_corners"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@color/White"
         android:textSize="18sp" />
 
